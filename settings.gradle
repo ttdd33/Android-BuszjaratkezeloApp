@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DÉZS-BusBusters"
+rootProject.name = "DEZS_BusBusters"
 include ':app'
