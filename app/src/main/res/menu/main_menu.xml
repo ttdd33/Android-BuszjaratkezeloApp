@@ -11,11 +11,11 @@
         android:id="@+id/loginFragment"
         android:title="Bejelentkezés"
         android:icon="@drawable/home"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/calendarFragment"
-        android:title="Kezdőlap"
+        android:title="@string/kezd_lap"
         app:showAsAction="never" />
 
     <item
