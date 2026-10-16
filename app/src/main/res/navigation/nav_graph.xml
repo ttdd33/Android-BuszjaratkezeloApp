@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment"
+    >
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="hu.nje.dzs_busbusters.ui.loginFragment"
+        android:label="Bejelntkezés"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/myReservationFragment"
+        android:name="hu.nje.dzs_busbusters.ui.myReservationsFragment"
+        android:label="Foglalásaim"
+        tools:layout="@layout/fragment_my_reservations" />
+
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="hu.nje.dzs_busbusters.ui.calendarFragment"
+        android:label="Foglalás"
+        tools:layout="@layout/fragment_calendar" />
+
+</navigation>
