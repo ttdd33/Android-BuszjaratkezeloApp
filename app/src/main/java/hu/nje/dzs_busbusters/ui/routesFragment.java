@@ -90,7 +90,11 @@ public class routesFragment extends Fragment {
         ));
 
 // Adapter létrehozása
-        routeAdapter adapter = new routeAdapter(routes);
+        String selectedDate = getArguments() != null
+                ? getArguments().getString("selectedDate")
+                : null;
+
+        routeAdapter adapter = new routeAdapter(routes, selectedDate);
 
 // Adapter hozzárendelése a RecyclerView-hoz
         routesRecyclerView.setAdapter(adapter);

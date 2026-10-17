@@ -31,4 +31,11 @@
         android:label="Járatok"
         tools:layout="@layout/fragment_routes" />
 
+    <fragment
+        android:id="@+id/routeDetailsFragment"
+        android:name="hu.nje.dzs_busbusters.ui.routeDetailsFragment"
+        android:label="Járat részletei"
+        tools:layout="@layout/fragment_route_details" />
+
+
 </navigation>

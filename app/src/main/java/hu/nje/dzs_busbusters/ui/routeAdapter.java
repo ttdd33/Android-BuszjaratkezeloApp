@@ -13,12 +13,19 @@ import java.util.List;
 
 import hu.nje.dzs_busbusters.R;
 
+import android.os.Bundle;
+import androidx.navigation.Navigation;
+
+
+
 public class routeAdapter extends RecyclerView.Adapter<routeAdapter.RouteViewHolder> {
 
     private List<route> routes;
+    private String selectedDate;
 
-    public routeAdapter(List<route> routes) {
+    public routeAdapter(List<route> routes, String selectedDate) {
         this.routes = routes;
+        this.selectedDate = selectedDate;
     }
 
     @NonNull
@@ -38,6 +45,7 @@ public class routeAdapter extends RecyclerView.Adapter<routeAdapter.RouteViewHol
 
         route route = routes.get(position);
 
+        // Járat adatainak megjelenítése
         holder.nameTextView.setText(route.getName());
         holder.timeTextView.setText(route.getTime());
 
@@ -45,6 +53,25 @@ public class routeAdapter extends RecyclerView.Adapter<routeAdapter.RouteViewHol
                 route.getCapacity() + " férőhely     "
                         + route.getReserved() + " foglalt"
         );
+
+        // Részletek gomb működése
+        holder.detailsButton.setOnClickListener(v -> {
+
+            Bundle bundle = new Bundle();
+
+            bundle.putString("routeName", route.getName());
+            bundle.putString("routeTime", route.getTime());
+            bundle.putInt("routeCapacity", route.getCapacity());
+            bundle.putInt("routeReserved", route.getReserved());
+
+            // A naptárban kiválasztott dátum átadása
+            bundle.putString("selectedDate", selectedDate);
+
+            Navigation.findNavController(v).navigate(
+                    R.id.routeDetailsFragment,
+                    bundle
+            );
+        });
     }
 
     @Override
@@ -52,18 +79,24 @@ public class routeAdapter extends RecyclerView.Adapter<routeAdapter.RouteViewHol
         return routes.size();
     }
 
-    public static class RouteViewHolder extends RecyclerView.ViewHolder {
+        public static class RouteViewHolder
+                extends RecyclerView.ViewHolder {
 
-        TextView nameTextView;
-        TextView timeTextView;
-        TextView capacityTextView;
+            TextView nameTextView;
+            TextView timeTextView;
+            TextView capacityTextView;
 
-        public RouteViewHolder(@NonNull View itemView) {
-            super(itemView);
+            Button detailsButton;
 
-            nameTextView = itemView.findViewById(R.id.routeNameTextView);
-            timeTextView = itemView.findViewById(R.id.routeTimeTextView);
-            capacityTextView = itemView.findViewById(R.id.routeCapacityTextView);
+            public RouteViewHolder(@NonNull View itemView) {
+                super(itemView);
+
+                nameTextView = itemView.findViewById(R.id.routeNameTextView);
+                timeTextView = itemView.findViewById(R.id.routeTimeTextView);
+                capacityTextView = itemView.findViewById(R.id.routeCapacityTextView);
+
+                detailsButton = itemView.findViewById(R.id.detailsButton);
+            }
         }
     }
-}
+
