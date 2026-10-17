@@ -25,4 +25,10 @@
         android:label="Foglalás"
         tools:layout="@layout/fragment_calendar" />
 
+    <fragment
+        android:id="@+id/routesFragment"
+        android:name="hu.nje.dzs_busbusters.ui.routesFragment"
+        android:label="Járatok"
+        tools:layout="@layout/fragment_routes" />
+
 </navigation>
