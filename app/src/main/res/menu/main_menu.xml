@@ -15,12 +15,12 @@
 
     <item
         android:id="@+id/calendarFragment"
-        android:title="@string/kezd_lap"
+        android:title="Foglalás"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/myReservationFragment"
-        android:title="Foglalásaim"
+        android:title="Korábbi foglalásaim"
         app:showAsAction="never" />
 
 
