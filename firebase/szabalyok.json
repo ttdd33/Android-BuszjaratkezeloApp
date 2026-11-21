@@ -1,0 +1,12 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": false,
+    "reservations": {
+      ".write": true,
+      "$reservationId": {
+        ".validate": "!newData.exists() || (newData.hasChildren(['userId', 'routeId', 'travelDate']) && root.child('users').child(newData.child('userId').val()).exists() && root.child('routes').child(newData.child('routeId').val()).exists())"
+      }
+    }
+  }
+}
