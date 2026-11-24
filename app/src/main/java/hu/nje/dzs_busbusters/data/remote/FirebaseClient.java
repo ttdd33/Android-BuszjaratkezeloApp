@@ -10,7 +10,6 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 // A Firebase Realtime Database REST végpontjai Retrofit interfészként
-.
 // A Firebase-ben minden adat-ág elérhető a "<ág neve>.json" címen.
 public interface FirebaseClient {
 
